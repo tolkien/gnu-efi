@@ -1131,6 +1131,7 @@ Returns:
             case 'X':
                 Item.Width = Item.Long ? 16 : 8;
                 Item.Pad = '0';
+		/* falls through */
             case 'x':
                 ValueToHex (
                     Item.Scratch,
