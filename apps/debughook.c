@@ -37,8 +37,9 @@ GetVariable(CHAR16 *var, UINT8 **data, UINTN *len, EFI_GUID owner)
 EFI_GUID DUMMY_GUID =
 {0x55aad538, 0x8f82, 0x4e2a, {0xa4,0xf0,0xbe, 0x59, 0x13, 0xb6, 0x5f, 0x1e}};
 
+#pragma GCC push_options
+#pragma GCC optimize ("0")
 static void
-__attribute__((__optimize__("0")))
 DebugHook(void)
 {
 	EFI_GUID guid = DUMMY_GUID;
@@ -81,7 +82,7 @@ DebugHook(void)
 	}
 	x = 1;
 }
-
+#pragma GCC pop_options
 
 EFI_STATUS
 efi_main (EFI_HANDLE image, EFI_SYSTEM_TABLE *systab)
